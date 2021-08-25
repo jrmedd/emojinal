@@ -10,6 +10,7 @@ import os
 from functools import wraps
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from pymongo import MongoClient
 
 MONGO_URL = os.environ.get('MONGO_URL')
@@ -24,6 +25,8 @@ EMOJI = DB['sentiment']
 APP = Flask(__name__)
 
 APP.secret_key = os.environ.get('SECRET_KEY')
+
+CORS(APP)
 
 def auth_required(wrapped_function):
     """
