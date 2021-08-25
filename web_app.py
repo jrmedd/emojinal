@@ -17,7 +17,7 @@ MONGO_URL = os.environ.get('MONGO_URL')
 
 CLIENT = MongoClient(MONGO_URL)
 
-DB = CLIENT['emoji']
+DB = CLIENT['emojinal']
 
 KEYS = DB['keys']
 EMOJI = DB['sentiment']
