@@ -23,7 +23,7 @@ I'm hosting the API at https://emojin.al/ so [you may contact me if you'd like a
 
 You can use the provided JSON file for your own MongoDB collection. The following command will import the data.
 
-`mongoimport --db emoji --collection sentiment emojiData.json --jsonArray`
+`mongoimport --db emojinal --collection sentiment emojiData.json --jsonArray`
 
 I also include separate collection named `keys` to verify users, which you can create manually. A document in that collection looks like:
 ```
