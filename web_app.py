@@ -22,7 +22,7 @@ DB = CLIENT['emojinal']
 KEYS = DB['keys']
 EMOJI = DB['sentiment']
 
-APP = Flask(__name__)
+APP = Flask(__name__,static_folder='./landing', static_url_path='/')
 
 APP.secret_key = os.environ.get('SECRET_KEY')
 
@@ -43,6 +43,13 @@ def auth_required(wrapped_function):
             return wrapped_function(*args, **kwargs)
         return "Invalid key", 401
     return verify_key
+
+@APP.route('/')
+def index():
+    """
+    Serves a simple React page explaining the API
+    """
+    return APP.send_static_file('index.html')
 
 @APP.route('/sentiment')
 @APP.route('/sentiment/<emoji>')
